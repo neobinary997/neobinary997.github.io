@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Neo</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 18 Apr 2025 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://neobinary997.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI应用</title>
+      <link>https://neobinary997.github.io/tags/ai%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/tags/ai%E5%BA%94%E7%94%A8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Embedding</title>
+      <link>https://neobinary997.github.io/tags/embedding/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/tags/embedding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Milvus</title>
+      <link>https://neobinary997.github.io/tags/milvus/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/tags/milvus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RAG</title>
+      <link>https://neobinary997.github.io/tags/rag/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/tags/rag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>文档处理</title>
+      <link>https://neobinary997.github.io/tags/%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/tags/%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI基础</title>
       <link>https://neobinary997.github.io/tags/ai%E5%9F%BA%E7%A1%80/</link>

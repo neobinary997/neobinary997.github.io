@@ -6,8 +6,15 @@
     <description>Recent content on Neo</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 18 Apr 2025 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://neobinary997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG 文档处理实战：从杂乱文档到结构化知识库</title>
+      <link>https://neobinary997.github.io/posts/rag-document-pipeline/</link>
+      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/rag-document-pipeline/</guid>
+      <description>从 PDF、Word、Excel 等企业内部文档出发，完整拆解 RAG 文档处理 Pipeline：解析、清洗、分块、向量化、入库，以及生产环境的增量更新与幂等性设计。</description>
+    </item>
     <item>
       <title>大语言模型原理速览：从 Tokenization 到推理</title>
       <link>https://neobinary997.github.io/posts/llm-principles-overview/</link>
