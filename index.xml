@@ -6,12 +6,19 @@
     <description>Recent content on Neo</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 May 2026 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 11:21:02 +0800</lastBuildDate>
     <atom:link href="https://neobinary997.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RAG 检索策略实战：从向量搜索到混合检索与重排序</title>
+      <link>https://neobinary997.github.io/posts/rag-retrieval-strategies/</link>
+      <pubDate>Thu, 07 May 2026 11:21:02 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/rag-retrieval-strategies/</guid>
+      <description>深入拆解 RAG 检索环节：向量检索、BM25 全文检索、混合检索融合（RRF）、Reranking 重排序、查询改写（HyDE/Multi-Query），以及检索质量的评估指标与工具。</description>
+    </item>
     <item>
       <title>RAG 文档处理实战：从杂乱文档到结构化知识库</title>
       <link>https://neobinary997.github.io/posts/rag-document-pipeline/</link>
-      <pubDate>Thu, 07 May 2026 10:00:00 +0800</pubDate>
+      <pubDate>Wed, 06 May 2026 13:01:20 +0800</pubDate>
       <guid>https://neobinary997.github.io/posts/rag-document-pipeline/</guid>
       <description>从 PDF、Word、Excel 等企业内部文档出发，完整拆解 RAG 文档处理 Pipeline：解析、清洗、分块、向量化、入库，以及生产环境的增量更新与幂等性设计。</description>
     </item>
