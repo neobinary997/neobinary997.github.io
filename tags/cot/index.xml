@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CoT on Neo</title>
+    <link>https://neobinary997.github.io/tags/cot/</link>
+    <description>Recent content in CoT on Neo</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 22 Feb 2024 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://neobinary997.github.io/tags/cot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt Engineering 实战：从零样本到思维链</title>
+      <link>https://neobinary997.github.io/posts/prompt-engineering-guide/</link>
+      <pubDate>Thu, 22 Feb 2024 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/prompt-engineering-guide/</guid>
+      <description>从零样本提示到思维链推理，系统梳理 Prompt Engineering 的核心技术和最佳实践，帮你更有效地与 LLM 沟通。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Function Calling on Neo</title>
+    <link>https://neobinary997.github.io/tags/function-calling/</link>
+    <description>Recent content in Function Calling on Neo</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 09 Apr 2024 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://neobinary997.github.io/tags/function-calling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Function Calling 机制解析：从原理到生产实践</title>
+      <link>https://neobinary997.github.io/posts/function-calling-deep-dive/</link>
+      <pubDate>Tue, 09 Apr 2024 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/function-calling-deep-dive/</guid>
+      <description>深入解析 Function Calling 机制的原理、主流大模型实现方案对比，以及生产环境中的最佳实践，帮你构建可靠的 AI Agent 工具调用能力。</description>
+    </item>
+  </channel>
+</rss>

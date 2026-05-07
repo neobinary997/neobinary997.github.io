@@ -15,5 +15,19 @@
       <guid>https://neobinary997.github.io/posts/llm-principles-overview/</guid>
       <description>从 Tokenization、Embedding、Transformer 架构到推理优化，逐层拆解大语言模型的核心原理，并结合 AI 应用开发实践讨论每个环节的工程意义。</description>
     </item>
+    <item>
+      <title>Function Calling 机制解析：从原理到生产实践</title>
+      <link>https://neobinary997.github.io/posts/function-calling-deep-dive/</link>
+      <pubDate>Tue, 09 Apr 2024 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/function-calling-deep-dive/</guid>
+      <description>深入解析 Function Calling 机制的原理、主流大模型实现方案对比，以及生产环境中的最佳实践，帮你构建可靠的 AI Agent 工具调用能力。</description>
+    </item>
+    <item>
+      <title>Prompt Engineering 实战：从零样本到思维链</title>
+      <link>https://neobinary997.github.io/posts/prompt-engineering-guide/</link>
+      <pubDate>Thu, 22 Feb 2024 10:00:00 +0800</pubDate>
+      <guid>https://neobinary997.github.io/posts/prompt-engineering-guide/</guid>
+      <description>从零样本提示到思维链推理，系统梳理 Prompt Engineering 的核心技术和最佳实践，帮你更有效地与 LLM 沟通。</description>
+    </item>
   </channel>
 </rss>
