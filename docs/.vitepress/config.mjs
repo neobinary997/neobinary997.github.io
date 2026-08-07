@@ -27,6 +27,7 @@ export default defineConfig({
         {
           text: '文章列表',
           items: [
+            { text: 'Agent 的 Reducer 模式状态注入详解', link: '/posts/2026-08-07-Reducer模式状态注入详解' },
             { text: 'AI Agent 工程实战', link: '/posts/2026-08-07-淘宝主播Agent的Harness工程实战' },
           ],
         },
