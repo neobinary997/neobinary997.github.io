@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -133,12 +134,17 @@ ${urls}
   console.log('[Sitemap] sitemap.xml generated')
 }
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: '技术文章解读沉淀',
   description: '优质技术文章解读与沉淀的个人技术博客，聚焦 AI Agent 系统构建、业务落地、工程化处理、可观测性与 Ops',
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
+
+  // Mermaid 图表（markdown 中的 ```mermaid 代码块）
+  mermaid: {
+    theme: 'neutral',
+  },
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -252,4 +258,4 @@ export default defineConfig({
       copyright: 'Copyright © 2026 · Powered by VitePress',
     },
   },
-})
+}))
