@@ -5,9 +5,9 @@ const postsModules = import.meta.glob('../../posts/*.md', { eager: true })
 
 const CATEGORY_ORDER = [
   'Agent 系统构建',
-  '业务落地',
   '工程化处理',
   '可观测性',
+  '评估体系建设',
   'Ops',
   '其他',
 ]
@@ -43,9 +43,9 @@ export function getCategories() {
 export function getCategoryColor(category) {
   const map = {
     'Agent 系统构建': '#185FA5',
-    '业务落地': '#0F6E56',
     '工程化处理': '#534AB7',
     '可观测性': '#993C1D',
+    '评估体系建设': '#0F6E56',
     'Ops': '#854F0B',
   }
   return map[category] || '#5F5E5A'
