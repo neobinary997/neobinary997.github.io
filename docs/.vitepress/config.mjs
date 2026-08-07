@@ -74,11 +74,12 @@ function buildSidebar() {
   }
   const ordered = CATEGORY_ORDER.filter((c) => groups[c]).map((c) => ({
     text: c,
+    collapsed: false,
     items: groups[c],
   }))
   const others = Object.keys(groups)
     .filter((c) => !CATEGORY_ORDER.includes(c))
-    .map((c) => ({ text: c, items: groups[c] }))
+    .map((c) => ({ text: c, collapsed: false, items: groups[c] }))
   return [...ordered, ...others]
 }
 
