@@ -142,8 +142,67 @@ export default withMermaid(defineConfig({
   lastUpdated: true,
 
   // Mermaid 图表（markdown 中的 ```mermaid 代码块）
+  // 亮色：base 主题 + 定制配色（蓝/紫/青三色系，与站点 hero 渐变一致）；
+  // 暗色：vitepress-plugin-mermaid 会强制切到 dark 主题（Mermaid.vue 行为），CSS 已做白卡片兜底。
   mermaid: {
-    theme: 'neutral',
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'inherit',
+      fontSize: '14px',
+      // 通用节点（flowchart 等）三色系
+      primaryColor: '#E6F1FB',
+      primaryTextColor: '#042C53',
+      primaryBorderColor: '#185FA5',
+      secondaryColor: '#EEEDFE',
+      secondaryTextColor: '#26215C',
+      secondaryBorderColor: '#534AB7',
+      tertiaryColor: '#E1F5EE',
+      tertiaryTextColor: '#04342C',
+      tertiaryBorderColor: '#0F6E56',
+      lineColor: '#5F5E5A',
+      edgeLabelBackground: '#FFFFFF',
+      clusterBkg: '#F1EFE8',
+      clusterBorder: '#B4B2A9',
+      // 时序图
+      actorBkg: '#E6F1FB',
+      actorBorder: '#185FA5',
+      actorTextColor: '#042C53',
+      actorLineColor: '#888780',
+      signalColor: '#5F5E5A',
+      signalTextColor: '#2C2C2A',
+      labelBoxBkgColor: '#FFFFFF',
+      labelBoxBorderColor: '#888780',
+      labelTextColor: '#2C2C2A',
+      noteBkgColor: '#FAEEDA',
+      noteBorderColor: '#BA7517',
+      activationBkgColor: '#B5D4F4',
+      activationBorderColor: '#185FA5',
+      sequenceNumberColor: '#5F5E5A',
+      // 状态图
+      stateBkg: '#EEEDFE',
+      stateBorder: '#534AB7',
+      stateLabelColor: '#26215C',
+      stateArrowColor: '#5F5E5A',
+      // ER 图
+      erFillPrimary: '#E6F1FB',
+      erFillSecondary: '#EEEDFE',
+      erStroke: '#5F5E5A',
+      erLabelBackground: '#FFFFFF',
+      // 类图
+      classText: '#042C53',
+      classBkg: '#E6F1FB',
+      classBorder: '#185FA5',
+      // 饼图
+      pie1: '#185FA5',
+      pie2: '#534AB7',
+      pie3: '#0F6E56',
+      pie4: '#D85A30',
+      pie5: '#854F0B',
+      pie6: '#993556',
+      pie7: '#3B6D11',
+      pie8: '#5F5E5A',
+      pieSectionTextColor: '#FFFFFF',
+    },
   },
 
   head: [

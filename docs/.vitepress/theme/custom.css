@@ -13,3 +13,34 @@
 .VPDoc .content-container {
   max-width: 760px;
 }
+
+/* Mermaid 图表美化 */
+.mermaid {
+  margin: 28px auto;
+  text-align: center;
+  overflow-x: auto;
+}
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+/* 流程图节点圆角（base 主题默认直角，增加精致感） */
+.mermaid .node rect {
+  rx: 10px;
+}
+/* 子图（subgraph）容器圆角 */
+.mermaid .cluster rect {
+  rx: 12px;
+}
+/* 边标签白底，避免线条穿过文字 */
+.mermaid .edgeLabel {
+  background: #ffffff;
+  padding: 0 4px;
+}
+/* 暗色模式下图表显示为浅色卡片，保证可读性
+   （插件暗色时强制 mermaid dark 主题，节点色由 themeVariables 保留为浅色） */
+html.dark .mermaid {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+}
