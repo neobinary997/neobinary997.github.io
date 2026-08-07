@@ -10,9 +10,9 @@ const POSTS_DIR = path.resolve(__dirname, '../posts')
 // 分类体系（5 大方向 + 其他）
 const CATEGORY_ORDER = [
   'Agent 系统构建',
-  '业务落地',
   '工程化处理',
   '可观测性',
+  '评估体系建设',
   'Ops',
   '其他',
 ]
