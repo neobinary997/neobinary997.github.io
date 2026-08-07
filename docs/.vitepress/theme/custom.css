@@ -1,0 +1,15 @@
+/* 自定义主题样式 */
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #534ab7 0%, #378add 100%);
+}
+
+/* 首页 hero 增强 */
+.VPHero .name {
+  font-size: 44px;
+}
+
+/* 文章正文宽度微调（可读性） */
+.VPDoc .content-container {
+  max-width: 760px;
+}

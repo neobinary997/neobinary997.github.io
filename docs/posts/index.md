@@ -2,9 +2,18 @@
 title: 文章列表
 ---
 
-# 文章列表
+<PostList show-filter />
 
-## AI Agent
-
-- Reducer模式状态注入详解（2026-08-07） → [阅读](./2026-08-07-Reducer模式状态注入详解)
-- 淘宝主播Agent的Harness工程实战（2026-08-07） → [阅读](./2026-08-07-淘宝主播Agent的Harness工程实战)
+<script setup>
+// 读取 URL 参数 ?category= 用于首页分类跳转
+import { onMounted } from 'vue'
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search)
+  const cat = params.get('category')
+  if (cat) {
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      if (btn.textContent.trim() === cat) btn.click()
+    })
+  }
+})
+</script>

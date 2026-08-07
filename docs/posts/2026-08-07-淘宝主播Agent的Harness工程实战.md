@@ -3,10 +3,10 @@ title: 淘宝主播 Agent 的 Harness 工程实战（总结梳理）
 date: 2026-08-07
 tags:
   - AI Agent
-  - 工程化
   - Harness
+  - 架构设计
   - 直播
-category: AI Agent
+category: 工程化处理
 description: 在直播间这种「高风险、高并发、不可撤回、主播无暇复核」的极端场景下，用模型外层的工程化骨架（Harness）把大模型能力变成可用、可控、可演化的工业级产品。
 ---
 
