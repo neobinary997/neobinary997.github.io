@@ -23,8 +23,7 @@ function normalizeDate(value) {
   return String(value || "").slice(0, 10);
 }
 
-const posts = fs
-  .readdirSync(POSTS_DIR)
+const posts = (fs.existsSync(POSTS_DIR) ? fs.readdirSync(POSTS_DIR) : [])
   .filter((file) => file.endsWith(".md"))
   .map((file) => {
     const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf-8");
