@@ -1,7 +1,7 @@
 // 文章数据工具：扫描 docs/posts/*.md，提取 frontmatter 供组件使用
 import { useData } from 'vitepress'
 
-const postsModules = import.meta.glob('../../posts/*.md', { eager: true })
+const postsModules = import.meta.glob('../../../posts/*.md', { eager: true })
 
 const CATEGORY_ORDER = [
   'Agent 系统构建',
@@ -12,22 +12,38 @@ const CATEGORY_ORDER = [
   '其他',
 ]
 
+const TODAY = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Shanghai',
+}).format(new Date())
+
+function normalizeDate(value) {
+  if (!value) return ''
+  if (value instanceof Date) return value.toISOString().slice(0, 10)
+  const text = String(value)
+  if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10)
+  const parsed = new Date(text)
+  return Number.isNaN(parsed.getTime()) ? '' : parsed.toISOString().slice(0, 10)
+}
+
 export function getAllPosts() {
   const posts = Object.entries(postsModules)
     .filter(([path]) => !path.endsWith('/index.md'))
     .map(([path, mod]) => {
-      const fm = mod.frontmatter || {}
+      const fm = mod.frontmatter || mod.__pageData?.frontmatter || {}
       const fileName = path.split('/').pop().replace(/\.md$/, '')
+      const date = normalizeDate(fm.date)
       return {
         title: fm.title || fileName,
-        date: fm.date ? String(fm.date).slice(0, 10) : '',
+        date,
         category: fm.category || '其他',
         tags: Array.isArray(fm.tags) ? fm.tags : [],
         description: fm.description || '',
         link: `/posts/${fileName}`,
-        rawDate: fm.date ? new Date(fm.date).getTime() : 0,
+        rawDate: date ? new Date(date).getTime() : 0,
+        status: fm.status || 'draft',
       }
     })
+    .filter((p) => p.status === 'published' && (!p.date || p.date <= TODAY))
     .sort((a, b) => b.rawDate - a.rawDate)
   return posts
 }

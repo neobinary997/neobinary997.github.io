@@ -18,6 +18,11 @@ const CATEGORY_ORDER = [
 ]
 
 const SITE_URL = 'https://neobinary997.github.io'
+const SITE_NAME = 'Neo 的 Agent 工程实践'
+const SITE_DESCRIPTION = '从业务场景到可靠生产系统，记录 AI Agent 的架构、工程化、评测、可观测性与运维实践'
+const TODAY = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Asia/Shanghai',
+}).format(new Date())
 
 // 解析 frontmatter（YAML 简单解析，够用即可）
 function parseFrontmatter(file) {
@@ -54,6 +59,7 @@ function getAllPosts() {
       return {
         title: fm.title || slug,
         date: (fm.date || '').slice(0, 10),
+        status: fm.status || 'draft',
         category: fm.category || '其他',
         tags: Array.isArray(fm.tags) ? fm.tags : [],
         description: fm.description || '',
@@ -61,6 +67,7 @@ function getAllPosts() {
         rawDate: fm.date ? new Date(fm.date).getTime() : 0,
       }
     })
+    .filter((p) => p.status === 'published' && (!p.date || p.date <= TODAY))
     .sort((a, b) => b.rawDate - a.rawDate)
 }
 
@@ -101,9 +108,9 @@ function generateRss(siteConfig) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技术文章解读沉淀</title>
+    <title>${SITE_NAME}</title>
     <link>${SITE_URL}</link>
-    <description>优质技术文章解读与沉淀的个人技术博客</description>
+    <description>${SITE_DESCRIPTION}</description>
     <language>zh-cn</language>
     <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
 ${items}
@@ -136,11 +143,12 @@ ${urls}
 }
 
 export default withMermaid(defineConfig({
-  title: '技术文章解读沉淀',
-  description: '优质技术文章解读与沉淀的个人技术博客，聚焦 AI Agent 系统构建、业务落地、工程化处理、可观测性与 Ops',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
+  srcExclude: ['drafts/**'],
 
   // Mermaid 图表（markdown 中的 ```mermaid 代码块）
   // 亮色：base 主题 + 定制配色（蓝/紫/青三色系，与站点 hero 渐变一致）；
@@ -210,16 +218,16 @@ export default withMermaid(defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
     ['meta', { name: 'theme-color', content: '#42b883' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:site_name', content: '技术文章解读沉淀' }],
+    ['meta', { property: 'og:site_name', content: SITE_NAME }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['link', { rel: 'alternate', type: 'application/rss+xml', title: '技术文章解读沉淀', href: '/feed.xml' }],
+    ['link', { rel: 'alternate', type: 'application/rss+xml', title: SITE_NAME, href: '/feed.xml' }],
   ],
 
   transformHead: ({ pageData }) => {
     const head = []
     const fm = pageData.frontmatter || {}
-    const title = fm.title || '技术文章解读沉淀'
-    const desc = fm.description || '优质技术文章解读与沉淀的个人技术博客'
+    const title = fm.title || SITE_NAME
+    const desc = fm.description || SITE_DESCRIPTION
     const url = `${SITE_URL}${pageData.relativePath.replace(/\.md$/, '')}`
     head.push(['meta', { property: 'og:title', content: title }])
     head.push(['meta', { property: 'og:description', content: desc }])
@@ -248,7 +256,7 @@ export default withMermaid(defineConfig({
       { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
       { text: '订阅 RSS', link: '/feed.xml' },
-      { text: '关于', link: '/about' },
+      { text: '关于 Neo', link: '/about' },
     ],
 
     sidebar: {
@@ -314,7 +322,7 @@ export default withMermaid(defineConfig({
 
     footer: {
       message:
-        '<a href="/feed.xml" style="text-decoration:underline">RSS 订阅</a> · 以解读沉淀知识，以分享促进成长',
+        '<a href="/feed.xml" style="text-decoration:underline">RSS 订阅</a> · <a href="https://github.com/neobinary997" style="text-decoration:underline">GitHub</a> · 从业务场景到可靠生产系统',
       copyright: 'Copyright © 2026 · Powered by VitePress',
     },
   },
