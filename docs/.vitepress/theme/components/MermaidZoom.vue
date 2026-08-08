@@ -53,7 +53,12 @@ function createSvgUrl(svg, size) {
   clone.classList.add('notranslate')
   clone.setAttribute('width', size.width)
   clone.setAttribute('height', size.height)
-  return URL.createObjectURL(new Blob([clone.outerHTML], { type: 'image/svg+xml' }))
+  // outerHTML uses the HTML serializer, which emits tags such as <br> inside
+  // Mermaid foreignObject labels. That markup is invalid when loaded as an
+  // SVG image and results in a blank zoom viewer. XMLSerializer preserves the
+  // required XML closing syntax.
+  const source = new XMLSerializer().serializeToString(clone)
+  return URL.createObjectURL(new Blob([source], { type: 'image/svg+xml' }))
 }
 
 async function openDiagram(diagram) {

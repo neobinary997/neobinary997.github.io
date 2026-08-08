@@ -46,7 +46,7 @@ flowchart TB
     H[Hermes Agent<br/>侧重「进化」<br/>学习闭环 · 自生成技能]:::teal
   end
   subgraph 架构层["架构层 · 学科"]
-    A[理解 · 选择 · 改造 · 组合 · 上生产]:::amber
+    A[业务语义 · 可靠性<br/>观测 · 评测 · 运营]:::amber
   end
   A --> O
   A --> H
