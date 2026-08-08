@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PostCard } from "@/components/post-card";
+import { Card, CardContent } from "@/components/ui/card";
 import { getAllPosts, getPost } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -21,11 +22,19 @@ export default function PostsPage() {
           共 {posts.length} 篇，按发布时间排序
         </p>
       </header>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </div>
+      {posts.length === 0 ? (
+        <Card>
+          <CardContent className="py-16 text-center text-muted-foreground">
+            还没有已发布的文章，敬请期待。
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
+            <PostCard key={post.slug} post={post} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

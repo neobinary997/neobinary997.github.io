@@ -60,22 +60,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="pb-16">
-        <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-bold tracking-tight">最新文章</h2>
-          <Link
-            href="/posts/"
-            className="text-sm font-medium text-primary hover:underline"
-          >
-            查看全部
-          </Link>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {latest.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      </section>
+      {latest.length > 0 && (
+        <section className="pb-16">
+          <div className="mb-6 flex items-end justify-between">
+            <h2 className="text-2xl font-bold tracking-tight">最新文章</h2>
+            <Link
+              href="/posts/"
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              查看全部
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {latest.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="pb-20">
         <Card>

@@ -6,26 +6,6 @@
     <description>技术、工程与思考的记录</description>
     <language>zh-CN</language>
     <atom:link href="https://neobinary997.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>欢迎来到新博客</title>
-      <link>https://neobinary997.github.io/posts/welcome/</link>
-      <guid isPermaLink="true">https://neobinary997.github.io/posts/welcome/</guid>
-      <pubDate>Fri, 07 Aug 2026 16:00:00 GMT</pubDate>
-      <description>这个博客从 VitePress 迁移到了 Next.js + shadcn/ui，本文介绍新系统的能力与写文章的方式。</description>
-    </item>
-    <item>
-      <title>用 Mermaid 画架构图</title>
-      <link>https://neobinary997.github.io/posts/mermaid-guide/</link>
-      <guid isPermaLink="true">https://neobinary997.github.io/posts/mermaid-guide/</guid>
-      <pubDate>Thu, 06 Aug 2026 16:00:00 GMT</pubDate>
-      <description>代码块里标记 mermaid，就能渲染出流程图、时序图等图表。本文用两个例子演示用法。</description>
-    </item>
-    <item>
-      <title>Markdown 排版速查</title>
-      <link>https://neobinary997.github.io/posts/markdown-demo/</link>
-      <guid isPermaLink="true">https://neobinary997.github.io/posts/markdown-demo/</guid>
-      <pubDate>Wed, 05 Aug 2026 16:00:00 GMT</pubDate>
-      <description>用一篇文章演示标题、列表、表格、引用和代码块的排版效果，方便写文章时对照参考。</description>
-    </item>
+
   </channel>
 </rss>

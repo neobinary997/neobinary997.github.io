@@ -22,7 +22,12 @@ interface PostPageProps {
 }
 
 export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
+  const posts = getAllPosts();
+  // 静态导出要求动态路由至少生成一个页面；
+  // 没有已发布文章时生成一个占位路由，页面会渲染 404。
+  return posts.length > 0
+    ? posts.map((post) => ({ slug: post.slug }))
+    : [{ slug: "no-posts" }];
 }
 
 export async function generateMetadata({
