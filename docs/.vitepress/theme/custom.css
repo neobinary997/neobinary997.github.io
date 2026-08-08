@@ -24,6 +24,34 @@
   max-width: 100%;
   height: auto;
 }
+.mermaid.is-zoomable {
+  position: relative;
+  cursor: zoom-in;
+  outline: none;
+}
+.mermaid.is-zoomable::after {
+  content: '点击放大';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 9px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--vp-c-bg) 90%, transparent);
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.mermaid.is-zoomable:hover::after,
+.mermaid.is-zoomable:focus-visible::after {
+  opacity: 1;
+}
+html.mermaid-zoom-open {
+  overflow: hidden;
+}
 /* 流程图节点圆角（base 主题默认直角，增加精致感） */
 .mermaid .node rect {
   rx: 10px;
