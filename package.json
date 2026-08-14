@@ -7,7 +7,10 @@
     "prebuild": "node scripts/generate-rss.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "new": "node scripts/new-post.mjs",
+    "publish": "node scripts/publish.mjs",
+    "preview": "node scripts/preview.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
