@@ -6,6 +6,12 @@
     <description>技术、工程与思考的记录</description>
     <language>zh-CN</language>
     <atom:link href="https://neobinary997.github.io/feed.xml" rel="self" type="application/rss+xml" />
-
+    <item>
+      <title>Agent Loop：把大模型放进一个可控循环</title>
+      <link>https://neobinary997.github.io/posts/agent-loop/</link>
+      <guid isPermaLink="true">https://neobinary997.github.io/posts/agent-loop/</guid>
+      <pubDate>Thu, 13 Aug 2026 16:00:00 GMT</pubDate>
+      <description>从一次工具调用出发，拆解 Agent Loop 的控制流、状态、停止条件与生产级边界。</description>
+    </item>
   </channel>
 </rss>

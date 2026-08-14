@@ -21,6 +21,26 @@ const components: Components = {
       </a>
     );
   },
+  pre({ children, node, ...props }) {
+    const child = node?.children?.[0] as
+      | {
+          type?: string;
+          tagName?: string;
+          properties?: { className?: unknown };
+        }
+      | undefined;
+    const className = child?.properties?.className;
+    const classes = Array.isArray(className)
+      ? className.map(String)
+      : [String(className ?? "")];
+    const isMermaid =
+      child?.type === "element" &&
+      child.tagName === "code" &&
+      classes.includes("language-mermaid");
+
+    if (isMermaid) return <>{children}</>;
+    return <pre {...props}>{children}</pre>;
+  },
   code({ className, children, node, ...props }) {
     void node;
     const match = /language-(\w+)/.exec(className ?? "");
