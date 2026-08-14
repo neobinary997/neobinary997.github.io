@@ -124,48 +124,46 @@ flowchart LR
 
 省略模型厂商的 SDK 后，Agent Loop 可以收缩成下面这段伪代码：
 
-```ts
-async function runAgent(goal: string) {
-  const state = createState(goal, {
-    maxSteps: 20,
-    deadlineMs: 60_000,
-  });
+```python
+async def run_agent(goal: str):
+    state = create_state(
+        goal,
+        max_steps=20,
+        deadline_ms=60_000,
+    )
 
-  while (!state.shouldStop()) {
-    const rawResponse = await model.generate({
-      messages: state.messagesForModel(),
-      tools: registry.schemas(),
-    });
+    while not state.should_stop():
+        raw_response = await model.generate(
+            messages=state.messages_for_model(),
+            tools=registry.schemas(),
+        )
 
-    const parsed = parseModelResponse(rawResponse);
-    if (!parsed.ok) {
-      state.observe({ type: "model_error", message: parsed.error });
-      continue;
-    }
+        parsed = parse_model_response(raw_response)
+        if not parsed.ok:
+            state.observe({
+                "type": "model_error",
+                "message": parsed.error,
+            })
+            continue
 
-    const response = parsed.value;
-    if (response.type === "final_answer") {
-      return state.complete(response.text);
-    }
+        response = parsed.value
+        if response.type == "final_answer":
+            return state.complete(response.text)
 
-    const decision = await policy.check(response.toolCall, state);
-    if (decision.type === "needs_approval") {
-      return state.pause(decision.request);
-    }
-    if (decision.type === "denied") {
-      state.observe(decision.asToolError());
-      continue;
-    }
+        decision = await policy.check(response.tool_call, state)
+        if decision.type == "needs_approval":
+            return state.pause(decision.request)
+        if decision.type == "denied":
+            state.observe(decision.as_tool_error())
+            continue
 
-    const observation = await registry.execute(
-      response.toolCall,
-      decision.scopedCredentials,
-    );
-    state.observe(observation);
-  }
+        observation = await registry.execute(
+            response.tool_call,
+            credentials=decision.scoped_credentials,
+        )
+        state.observe(observation)
 
-  return state.stopWithReason();
-}
+    return state.stop_with_reason()
 ```
 
 短短几十行已经包含了主要结构，但还不能直接用于生产。工具需要考虑超时、有限重试，以及用幂等键等方式避免重复副作用；每一轮还要留下可追踪记录。尤其不要把 `maxSteps` 当成唯一停止条件，否则系统会因预算耗尽而中止，用户仍然不知道任务做到了哪里。
@@ -218,7 +216,7 @@ sequenceDiagram
 
 在常见的 tool-calling 接口中，模型通常不会自动看到工具源码。它能看到的是名称、描述和参数 Schema，含糊的定义会迫使它猜测。
 
-`run(command: string)` 看起来很灵活，却把权限控制、转义、超时和输出解析都挤进一个入口。面向具体任务的工具通常更稳，例如 `search_code(query, path)`、`apply_patch(patch)`、`run_tests(target)`。它们的参数容易验证，返回结果也更容易压缩。
+`run(command: str)` 看起来很灵活，却把权限控制、转义、超时和输出解析都挤进一个入口。面向具体任务的工具通常更稳，例如 `search_code(query, path)`、`apply_patch(patch)`、`run_tests(target)`。它们的参数容易验证，返回结果也更容易压缩。
 
 工具的 observation 还要“可行动”。只返回 `failed` 没什么用；返回错误类型、失败位置、可重试性和必要的 stderr 片段，模型才能修正下一步。输出也不能无限大。搜索工具应该限制匹配数量，测试工具应该优先返回失败摘要，并为完整日志提供引用。
 
